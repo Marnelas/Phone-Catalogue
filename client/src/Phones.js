@@ -6,16 +6,10 @@ import CardColumns from "react-bootstrap/CardColumns"
 
 class Phones extends Component {
 
-  constructor() {
-    super()
-    this.state = {
-      phones: []    }
-  }
-
   componentDidMount () {
     Axios.get("http://localhost:3000/api/phones")
     .then(res => res.data)
-    .then(phones => this.setState({phones}))
+    .then(phones => this.props.saveAllPhones(phones))
     .catch(err => console.log(err))
   }
   
@@ -24,7 +18,7 @@ class Phones extends Component {
       <main>
         <section>
           <CardColumns>
-          {this.state.phones.map((phone, idx) =>
+          {this.props.allPhones.map((phone, idx) =>
             <article key={idx}>
               <Card>
                 <Card.Img variant="top" src={"images/" + phone.imageFileName}/>

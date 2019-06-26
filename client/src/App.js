@@ -1,12 +1,12 @@
 import React from 'react'
 import {Switch, Route} from "react-router-dom"
-import Phones from "./Phones"
-import PhoneDetails from "./PhoneDetails"
+import AllPhones from "./containers/allPhones"
+import OnePhone from "./containers/onePhone"
 
 const App = () => 
     <Switch>
-        <Route exact path="/" component={Phones}></Route>
-        <Route path="/:id" render={(props) => <PhoneDetails {...props} />}></Route>
+        <Route exact path="/" component={AllPhones}></Route>
+        <Route path="/:id" render={(props) => <OnePhone {...props} />}></Route>
     </Switch>
 
     
