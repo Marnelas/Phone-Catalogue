@@ -8,7 +8,5 @@ const App = () =>
         <Route exact path="/" component={AllPhones}></Route>
         <Route path="/:id" render={(props) => <OnePhone {...props} />}></Route>
     </Switch>
-
-    
     
 export default App
